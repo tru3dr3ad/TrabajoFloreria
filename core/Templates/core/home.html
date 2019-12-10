@@ -1,0 +1,55 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+
+{% block contenido %}
+
+<main>
+    <section id="productos">
+        <div class="contenedor">
+            <h3>Productos</h3>
+            <div class="contenedor-productos">
+                {% for f in flores %}
+                <div class="producto">
+                    <img src="{{ f.imagen.url }}">
+                    <ul>
+                        <li>{{ f.nombre }}</li>
+                        <li>{{ f.descripcion }}</li>
+                        <li>{{ f.valor }}</li>
+                    </ul>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section id="quienes-somos">
+        <div class="contenedor">
+            <h3>¿Quienes somos?</h3>
+            <div class="contenedor-quienes-somos">
+                <div class="supermercado">
+                    <img src="{% static 'core/img/QSFlores.jpg' %}">
+                </div>
+                <div class="texto">
+                    <h4>Nuestra Historia</h4>
+                    <p>Somos un grupo de empresas con largos años de trayectoria tiempo en el cual hemos ganado una
+                        vasta experiencia en el rubro de arreglos florales para todo momento y ocasión, estamos
+                        distribuidos en todas las regiones y ciudades de Chile . Toda está, nuestra gran experiencia
+                        adquirida, se la debemos en su totalidad a cada uno de nuestros distinguidos clientes que son el
+                        motivo fundamental que nos motiva a mejorar día a día, tanto en lo tecnológico, así como también
+                        en nuestros diversos y modernos diseños.
+
+                        La calidad inmejorable de nuestros productos y los servicios de primera, como son la atención al
+                        cliente, recepción del pedido, y entrega puntual de los arreglos florales contratados, esta es
+                        una de nuestras cartas para obtener así los más altos reconocimientos de nuestra distinguida
+                        clientela.
+
+                        El principal valor agregado de nuestro Holding de empresas, son nuestros miles de clientes
+                        satisfechos y esto se debe a nuestro principal lema “Calidad, Dedicación, Servicio y
+                        Puntualidad”.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock contenido %}

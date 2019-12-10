@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {% block css %} {% endblock css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>Floreria</title>
+</head>
+
+<body>
+    <header id="header-index">
+        <div class="menu">
+            <div class="contenedor" id="contenedor-menu">
+                <img class="menu-icon" src="{% static 'core/img/icon.png' %}" alt="">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="{% url 'home' %}"><img id="logo" src="{% static 'core/img/FlorLoto.png' %}"></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'galeria' %}">Flores</a>
+                        </li>
+                        <li>
+                            <a href="#quienes-somos">¿Quienes somos?</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'nueva_flor' %}">Nuevo Producto</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'listado_flores' %}">Listado de Flores</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="#">Usuario: {{ user.username }}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Iniciar Sesion</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'registro_usuario' %}">Registrar</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="contenedor-titulo">
+            <h1>Los Petalos</h1>
+        </div>
+        </div>
+        </div>
+    </header>
+
+    {% block contenido %} {% endblock %}
+</body>
+{% block javascript %} {% endblock javascript %}
+<footer>
+
+</footer>
+
+</html>

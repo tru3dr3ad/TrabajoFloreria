@@ -1,0 +1,290 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contenedor-titulo {
+    margin-top: 90px;
+    font-size: 72;
+    margin-left: 20%;
+    float: left;
+    font-family: 'Great Vibes', cursive;
+}
+
+h3 {
+    text-align: center;
+    font-size: 55px;
+    font-weight: normal;
+}
+
+header .contenedor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor {
+    max-width: 1280px;
+    width: 90%;
+    margin: auto;
+}
+
+.formulario {
+    width: 80%;
+}
+
+#formulario .contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+header ul {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.logo {
+    margin-top: 25px;
+    color: white;
+    font-size: 20px;
+}
+
+nav ul {
+    margin-top: 20px;
+}
+
+#logo {
+    width: 10%;
+}
+
+nav ul li a:hover,
+.logo:hover {
+    color: black;
+    list-style: none;
+}
+
+header ul li {
+    list-style: none;
+    margin-right: 90px;
+    font-size: 20px;
+}
+
+a {
+    text-decoration: none;
+}
+
+#header-index {
+    height: 100vh;
+    background: radial-gradient(rgba(238, 174, 202, .6), rgba(148, 187, 223, .6)), url(../img/FloresInicio.jpg);
+    background-size: cover;
+}
+
+nav ul li a {
+    color: black;
+}
+
+#contenedor-menu img {
+    width: 11vh;
+}
+
+.menu {
+    background-color: rgba(221, 18, 185, 0.6);
+}
+
+#contacto form {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 77%;
+    margin: auto;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"] {
+    width: 49%;
+    margin-bottom: 15px;
+    padding: 18px 0;
+    border: 0;
+    border-bottom: 1px solid #5cb8ff;
+    font-size: 17px;
+}
+
+textarea {
+    padding: 18px 0;
+    border: 0;
+    border-bottom: 1px solid #5cb8ff;
+    font-size: 17px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+#contacto input[type="submit"] {
+    width: 166px;
+    margin: auto;
+}
+
+
+/* QUIENES SOMOS */
+
+.contenedor-quienes-somos {
+    display: flex;
+    justify-content: space-around;
+}
+
+.contenedor-quienes-somos .texto {
+    width: 42%;
+    font-size: 17px;
+    line-height: 23px;
+    margin-bottom: 0;
+}
+
+.contenedor-productos {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background: aliceblue;
+}
+
+.producto {
+    background: pink;
+    margin: 20px 10px 20px 10px;
+    width: 210px;
+    text-align: center;
+    padding: 10px;
+}
+
+.producto ul li,
+.item ul li {
+    list-style: none;
+    text-align: center;
+    vertical-align: auto;
+}
+
+.producto ul,
+.item ul {
+    padding-left: 0%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+#quienes-somos,
+#contacto,
+#ofertas,
+#ubicacion,
+#productos {
+    padding: 90px 0;
+}
+
+#productos ul li:first-child,
+#ofertas ul li:first-child {
+    font-size: 28px;
+    margin-top: 10px;
+    font-weight: bolder;
+}
+
+#productos ul li:nth-child(2),
+#ofertas ul li:nth-child(2) {
+    font-weight: lighter;
+    font-size: 19px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#productos ul li:nth-child(3),
+#ofertas ul li:nth-child(3) {
+    font-weight: lighter;
+    font-size: 25px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.producto img {
+    width: 100%;
+}
+
+.contenedor-quienes-somos img {
+    width: 95%;
+    margin-left: 15px;
+}
+
+
+/* UBICACION    */
+
+.mapa {
+    display: flex;
+    justify-content: center;
+}
+
+#ofertas .descuento,
+.carrito img {
+    float: right;
+    width: 20%;
+    background: #5cb8ff;
+    border-radius: 30%;
+}
+
+.contenedor-ubicacion {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carrito img {
+    margin: 5px;
+}
+
+.carrito img:hover,
+.producto img:hover,
+.owl-carousel img:hover {
+    filter: brightness(0.7);
+    border-radius: 10px;
+}
+
+#contacto input[type="submit"],
+#formulario input[type="submit"] {
+    font-size: 14px;
+    color: #ffffff;
+    background: #5cb8ff;
+    padding: 14px 24px;
+    width: 140px;
+    display: inline-block;
+}
+
+footer {
+    background-color: black;
+    width: 10vh;
+}
+
+.menu-icon {
+    display: none;
+}
+
+img#logo {
+    width: 60px;
+}
+
+
+/* ---------------------------------------- */
+
+@media (max-width: 800px) {
+    .menu-icon {
+        display: block;
+    }
+    header nav {
+        position: absolute;
+        top: 83px;
+        left: 0;
+        height: 268px;
+        background: #5cb8ff;
+        width: 100%;
+    }
+    header nav ul {
+        flex-direction: column;
+    }
+    header nav ul li {
+        margin-bottom: 5px;
+    }
+    img#logo {
+        width: 50px;
+    }
+}
