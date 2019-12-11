@@ -12,7 +12,11 @@ def home(request):
     return render(request, 'core/home.html', data)
 
 def galeria(request):
-    return render(request, 'core/galeria.html')
+    flores = Flor.objects.all()
+    data = {
+        'flores' : flores
+    }
+    return render(request, 'core/galeria.html', data)
 
 def listado_flor(request):
     flores = Flor.objects.all()

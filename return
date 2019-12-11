@@ -1,0 +1,168 @@
+[1mdiff --git a/core/Templates/core/galeria.html b/core/Templates/core/galeria.html[m
+[1mindex 980b201..ef147d4 100644[m
+[1m--- a/core/Templates/core/galeria.html[m
+[1m+++ b/core/Templates/core/galeria.html[m
+[36m@@ -7,134 +7,16 @@[m
+         <div class="contenedor">[m
+             <h3>Productos</h3>[m
+             <div class="contenedor-productos">[m
+[32m+[m[32m                {% for f in flores %}[m
+                 <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/1.jpg' %}">[m
+[32m+[m[32m                    <img src="{{ f.imagen.url }}">[m
+                     <ul>[m
+[31m-                        <li>Pollo</li>[m
+[31m-                        <li>Super Pollo</li>[m
+[31m-                        <li>$2300</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/2.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Cervezas</li>[m
+[31m-                        <li>Pack 6 Royal</li>[m
+[31m-                        <li>$2990</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/3.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Cola Cao</li>[m
+[31m-                        <li>Leche Chocolate</li>[m
+[31m-                        <li>$1490</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/4.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Alitas de Pollo</li>[m
+[31m-                        <li>Super Pollo</li>[m
+[31m-                        <li>$4990</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/5.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Chocolate</li>[m
+[31m-                        <li>Herseys Variedades</li>[m
+[31m-                        <li>$1990</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/6.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Kukys</li>[m
+[31m-                        <li>Galletas McKay</li>[m
+[31m-                        <li>$890</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/7.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Morocha</li>[m
+[31m-                        <li>Gallera Morocha Retro</li>[m
+[31m-                        <li>$1490</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/8.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Oreo</li>[m
+[31m-                        <li>Galleta Oreo Variedades</li>[m
+[31m-                        <li>$990</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/9.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Papas Lays</li>[m
+[31m-                        <li>Papas Lays Variedades</li>[m
+[31m-                        <li>$1490</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/10.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Pechuga</li>[m
+[31m-                        <li>Super Cerdo</li>[m
+[31m-                        <li>$4490</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/11.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Philadelfia</li>[m
+[31m-                        <li>Queso Crema 400gr</li>[m
+[31m-                        <li>$3990</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/12.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Té Supremo</li>[m
+[31m-                        <li>Té Supremo Variedades</li>[m
+[31m-                        <li>$1890</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/13.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Twistos</li>[m
+[31m-                        <li>Tostaditas Twistos</li>[m
+[31m-                        <li>$990 </li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/14.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Alitas</li>[m
+[31m-                        <li>Super Pollo 400gr</li>[m
+[31m-                        <li>$3490</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/15.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Wiskas</li>[m
+[31m-                        <li>Comida para Gatos</li>[m
+[31m-                        <li>$1490</li>[m
+[31m-                    </ul>[m
+[31m-                </div>[m
+[31m-                <div class="producto">[m
+[31m-                    <img src="{% static 'core/img/16.jpg' %}">[m
+[31m-                    <ul>[m
+[31m-                        <li>Frac</li>[m
+[31m-                        <li>Galletas Frac</li>[m
+[31m-                        <li>$490</li>[m
+[32m+[m[32m                        <li>{{ f.nombre }}</li>[m
+[32m+[m[32m                        <li>{{ f.descripcion }}</li>[m
+[32m+[m[32m                        <li>{{ f.valor }}</li>[m
+                     </ul>[m
+                 </div>[m
+[32m+[m[32m                {% endfor %}[m
+             </div>[m
+         </div>[m
+     </section>[m
+[1mdiff --git a/core/__pycache__/views.cpython-37.pyc b/core/__pycache__/views.cpython-37.pyc[m
+[1mindex a935dc8..4146b29 100644[m
+Binary files a/core/__pycache__/views.cpython-37.pyc and b/core/__pycache__/views.cpython-37.pyc differ
+[1mdiff --git a/core/views.py b/core/views.py[m
+[1mindex 024f094..e3ac184 100644[m
+[1m--- a/core/views.py[m
+[1m+++ b/core/views.py[m
+[36m@@ -12,7 +12,11 @@[m [mdef home(request):[m
+     return render(request, 'core/home.html', data)[m
+ [m
+ def galeria(request):[m
+[31m-    return render(request, 'core/galeria.html')[m
+[32m+[m[32m    flores = Flor.objects.all()[m
+[32m+[m[32m    data = {[m
+[32m+[m[32m        'flores' : flores[m
+[32m+[m[32m    }[m
+[32m+[m[32m    return render(request, 'core/galeria.html', data)[m
+ [m
+ def listado_flor(request):[m
+     flores = Flor.objects.all()[m
+[1mdiff --git a/db.sqlite3 b/db.sqlite3[m
+[1mindex 8f22bc2..4a14511 100644[m
+Binary files a/db.sqlite3 and b/db.sqlite3 differ

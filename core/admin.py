@@ -1,13 +1,11 @@
 from django.contrib import admin
-from .models import Tipo, Flor
+from .models import Flor
 # Register your models here.
 
 class FlorAdmin(admin.ModelAdmin):
-    list_display = ['nombre', 'valor', 'tipo']
-    search_fields = ['nombre', 'tipo']
-    list_filter = ['tipo']
+    list_display = ['nombre', 'valor', 'estado']
+    search_fields = ['nombre', 'valor']
+    list_filter = ['estado']
     list_per_page = 15
 
-
-admin.site.register(Tipo)
 admin.site.register(Flor, FlorAdmin)

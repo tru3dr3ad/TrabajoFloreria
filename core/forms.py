@@ -11,7 +11,7 @@ class FlorForm(ModelForm):
 
     class Meta:
         model = Flor
-        fields = ['imagen','nombre', 'valor','tipo','descripcion','estado','stock']
+        fields = ['imagen','nombre', 'valor','descripcion','estado','stock']
 
 class CustomUserForm(UserCreationForm):
     

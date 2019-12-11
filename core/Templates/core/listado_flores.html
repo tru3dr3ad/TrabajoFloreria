@@ -14,7 +14,7 @@
       <tr>
           <th>Nombre</th>
           <th>Valor</th>
-          <th>Tipo</th>
+          <th>Descripcion</th>
           <th>Opciones</th>
       </tr>
   
@@ -22,7 +22,7 @@
         <tr>
           <td>{{f.nombre}}</td>
           <td>{{f.valor}}</td>
-          <td>{{f.tipo}}</td>
+          <td>{{f.descripcion}}</td>
           <td>
               <a href="{% url 'modificar_flor' f.id %}">Modificar</a>
               <a href="#" onclick="confirmarEliminacion({{f.id}})">Eliminar</a>
