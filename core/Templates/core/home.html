@@ -1,55 +1,136 @@
-{% extends "core/base.html" %}
+<!DOCTYPE html>
+<html lang="es">
 {% load static %}
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> {% block css %} {% endblock css %}
+    <link rel="stylesheet" href="{% static 'core/css/estilos.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+    <title>Floreria</title>
+</head>
 
-{% block contenido %}
-
-<main>
-    <section id="productos">
-        <div class="contenedor">
-            <h3>Productos</h3>
-            <div class="contenedor-productos">
-                {% for f in flores %}
-                <div class="producto">
-                    <img src="{{ f.imagen.url }}">
+<body>
+    <header id="header-index">
+        <div class="menu">
+            <div class="contenedor" id="contenedor-menu">
+                <img class="menu-icon" src="{% static 'core/img/icon.png' %}" alt="">
+                <nav>
                     <ul>
-                        <li>{{ f.nombre }}</li>
-                        <li>{{ f.descripcion }}</li>
-                        <li>{{ f.valor }}</li>
+                        <li>
+                            <a href="{% url 'home' %}"><img id="logo" src="{% static 'core/img/FlorLoto.png' %}"></a>
+                        </li>
+                        <li>
+                            <a href="{% url 'galeria' %}">Flores</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'nueva_flor' %}">Nuevo Producto</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'listado_flores' %}">Listado de Flores</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <li>
+                            <a href="#">Usuario: {{ user.username }}</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'logout' %}">Cerrar Sesion</a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a href="{% url 'login' %}">Iniciar Sesion</a>
+                        </li>
+                        <li>
+                            <a href="{% url 'registro_usuario' %}">Registrar</a>
+                        </li>
+                        {% endif %}
                     </ul>
-                </div>
-                {% endfor %}
+                </nav>
             </div>
         </div>
-    </section>
-    <section id="quienes-somos">
-        <div class="contenedor">
-            <h3>¿Quienes somos?</h3>
-            <div class="contenedor-quienes-somos">
-                <div class="supermercado">
-                    <img src="{% static 'core/img/QSFlores.jpg' %}">
-                </div>
-                <div class="texto">
-                    <h4>Nuestra Historia</h4>
-                    <p>Somos un grupo de empresas con largos años de trayectoria tiempo en el cual hemos ganado una
-                        vasta experiencia en el rubro de arreglos florales para todo momento y ocasión, estamos
-                        distribuidos en todas las regiones y ciudades de Chile . Toda está, nuestra gran experiencia
-                        adquirida, se la debemos en su totalidad a cada uno de nuestros distinguidos clientes que son el
-                        motivo fundamental que nos motiva a mejorar día a día, tanto en lo tecnológico, así como también
-                        en nuestros diversos y modernos diseños.
-
-                        La calidad inmejorable de nuestros productos y los servicios de primera, como son la atención al
-                        cliente, recepción del pedido, y entrega puntual de los arreglos florales contratados, esta es
-                        una de nuestras cartas para obtener así los más altos reconocimientos de nuestra distinguida
-                        clientela.
-
-                        El principal valor agregado de nuestro Holding de empresas, son nuestros miles de clientes
-                        satisfechos y esto se debe a nuestro principal lema “Calidad, Dedicación, Servicio y
-                        Puntualidad”.</p>
+        <div class="contenedor-titulo">
+            <h1>Los Petalos</h1>
+        </div>
+        </div>
+        </div>
+    </header>
+    <main>
+        <section id="productos">
+            <div class="contenedor">
+                <h3>Productos</h3>
+                <div class="contenedor-productos">
+                    {% for f in flores %}
+                    <div class="producto">
+                        <img src="{{ f.imagen.url }}">
+                        <ul>
+                            <li>{{ f.nombre }}</li>
+                            <li>{{ f.descripcion }}</li>
+                            <li>{{ f.valor }}</li>
+                        </ul>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
-        </div>
-    </section>
-</main>
+        </section>
+        <section id="quienes-somos">
+            <div class="contenedor">
+                <h3>¿Quienes somos?</h3>
+                <div class="contenedor-quienes-somos">
+                    <div class="supermercado">
+                        <img src="{% static 'core/img/QSFlores.jpg' %}">
+                    </div>
+                    <div class="texto">
+                        <h4>Nuestra Historia</h4>
+                        <p>Somos un grupo de empresas con largos años de trayectoria tiempo en el cual hemos ganado una vasta experiencia en el rubro de arreglos florales para todo momento y ocasión, estamos distribuidos en todas las regiones y ciudades
+                            de Chile . Toda está, nuestra gran experiencia adquirida, se la debemos en su totalidad a cada uno de nuestros distinguidos clientes que son el motivo fundamental que nos motiva a mejorar día a día, tanto en lo tecnológico,
+                            así como también en nuestros diversos y modernos diseños. La calidad inmejorable de nuestros productos y los servicios de primera, como son la atención al cliente, recepción del pedido, y entrega puntual de los arreglos florales
+                            contratados, esta es una de nuestras cartas para obtener así los más altos reconocimientos de nuestra distinguida clientela. El principal valor agregado de nuestro Holding de empresas, son nuestros miles de clientes satisfechos
+                            y esto se debe a nuestro principal lema “Calidad, Dedicación, Servicio y Puntualidad”.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-{% endblock contenido %}
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            scroll = $(window).scrollTop();
+            if (scroll > 100) {
+                $('.menu').css({
+                    "position": "fixed"
+                });
+                $('.menu').css({
+                    "width": "100%"
+                });
+                $('.menu').css({
+                    "top": "0"
+                });
+                $('.menu').css({
+                    "z-index": "100"
+                });
+            }
+        })
+        $('.menu-icon').click(function() {
+            $('header nav').slideToggle();
+        })
+    })
+</script>
+<footer>
+    <div class="contenedor">
+        <p>
+            Enviamos arreglos florales a domicilio para cumpleaños, aniversarios, nacimientos y defunciones en las siguientes comunas de la Región Metropolitana
+        </p>
+        <center>
+            <p>Copyright © 2019 Todos los derechos reservados</p>
+        </center>
+    </div>
+</footer>
+
+</html>

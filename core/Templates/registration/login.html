@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Login</title>
-</head>
-<body>
-    <div class="container">
-        <h2>Autenticacion</h2>
-        {% load crispy_forms_tags %}
-        <form action="" method="POST">
-            {% csrf_token %}
+{% extends "core/base.html" %}
+{% load static %}
+{% block contenido %}
+    <section id="login">
+        <div class="container">
+            <h2>Autenticacion</h2>
+            {% load crispy_forms_tags %}
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input class="btn btn-primary" type="submit" value="Entrar">
+            </form>
+        </div>
+    </section>
+{% endblock contenido %}
     
-            {{ form|crispy }}
-    
-            <input type="submit" value="Login" class="btn btn-sucess float-right">
-        </form>
-    </div>
-</body>
-</html>

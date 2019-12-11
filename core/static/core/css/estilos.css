@@ -101,7 +101,8 @@ nav ul li a {
 
 input[type="text"],
 input[type="email"],
-input[type="number"] {
+input[type="number"],
+input[type="submit"] {
     width: 49%;
     margin-bottom: 15px;
     padding: 18px 0;
@@ -122,6 +123,11 @@ textarea {
 #contacto input[type="submit"] {
     width: 166px;
     margin: auto;
+}
+
+#registro,
+#login {
+    padding: 70px;
 }
 
 
@@ -172,7 +178,10 @@ textarea {
 #contacto,
 #ofertas,
 #ubicacion,
-#productos {
+#productos,
+#listado-flores,
+#modificar-flor,
+#nuevo-flor {
     padding: 90px 0;
 }
 
@@ -252,7 +261,10 @@ textarea {
 
 footer {
     background-color: black;
-    width: 10vh;
+    width: 100%;
+    padding: 60px 0;
+    color: white;
+    align-items: center;
 }
 
 .menu-icon {
@@ -263,20 +275,31 @@ img#logo {
     width: 60px;
 }
 
+.contenedor-titulo h1 {
+    font-size: 72px;
+}
+
+#login,
+#registro {
+    margin: 90px 0;
+}
+
 
 /* ---------------------------------------- */
 
 @media (max-width: 800px) {
     .menu-icon {
         display: block;
+        float: right;
     }
     header nav {
         position: absolute;
         top: 83px;
         left: 0;
-        height: 268px;
-        background: #5cb8ff;
+        height: 290px;
+        background-color: lavender;
         width: 100%;
+        display: none;
     }
     header nav ul {
         flex-direction: column;

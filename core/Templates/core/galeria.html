@@ -1,24 +1,22 @@
-{% extends "core/base.html" %}
-{% load static %}
-
-{% block contenido %}
+{% extends "core/base.html" %} {% load static %} {% block contenido %}
 
 <section id="productos">
-        <div class="contenedor">
-            <h3>Productos</h3>
-            <div class="contenedor-productos">
-                {% for f in flores %}
-                <div class="producto">
-                    <img src="{{ f.imagen.url }}">
-                    <ul>
-                        <li>{{ f.nombre }}</li>
-                        <li>{{ f.descripcion }}</li>
-                        <li>{{ f.valor }}</li>
-                    </ul>
-                </div>
-                {% endfor %}
+    <div class="contenedor">
+        <h3>Productos</h3>
+        <div class="contenedor-productos">
+            {% for f in flores %}
+            <div class="producto">
+                <img src="{{ f.imagen.url }}">
+                <ul>
+                    <li>{{ f.nombre }}</li>
+                    <li>{{ f.descripcion }}</li>
+                    <li>{{ f.valor }}</li>
+                    <li><a class="badge badge-primary" href="#">Agregar</a></li>
+                </ul>
             </div>
+            {% endfor %}
         </div>
-    </section>
+    </div>
+</section>
 
 {% endblock contenido %}

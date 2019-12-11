@@ -1,17 +1,19 @@
-{% extends "core/base.html" %}
+{% extends "core/base.html" %} {% load crispy_forms_tags %} {% block contenido %}
+<section id="modificar-flor">
+    <div class="contenedor">
+        <h2>Modificar Flor</h2>
 
-{% block contenido %}
-<h2>Modificar Flor</h2>
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %} {{form|crispy}}
 
-<form action="" method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
-    <input type="reset" value="Limpiar">
-    <input type="submit" value="Modificar">
-</form>
+            <input type="reset" value="Limpiar" class="btn btn-secondary">
+            <input type="submit" value="Modificar" class="btn btn-primary" style="padding=0">
+        </form>
+        <div class="alert alert-success" role="alert">
+            {{ mensaje }}
+        </div>
 
-{{ mensaje }}
+    </div>
+</section>
 
 {% endblock contenido %}
