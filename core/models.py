@@ -7,7 +7,7 @@ class Flor(models.Model):
     valor = models.IntegerField()
     descripcion = models.TextField()
     estado = models.BooleanField()
-    stock = models.IntegerField()
+    stock = models.IntegerField(default=0)
 
     def __str__(self):
         return self.nombre

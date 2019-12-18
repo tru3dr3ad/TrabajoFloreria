@@ -99,18 +99,6 @@ nav ul li a {
     margin: auto;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="submit"] {
-    width: 49%;
-    margin-bottom: 15px;
-    padding: 18px 0;
-    border: 0;
-    border-bottom: 1px solid #5cb8ff;
-    font-size: 17px;
-}
-
 textarea {
     padding: 18px 0;
     border: 0;
@@ -118,11 +106,6 @@ textarea {
     font-size: 17px;
     margin-bottom: 40px;
     width: 100%;
-}
-
-#contacto input[type="submit"] {
-    width: 166px;
-    margin: auto;
 }
 
 #registro,
@@ -225,26 +208,12 @@ textarea {
     justify-content: center;
 }
 
-#ofertas .descuento,
-.carrito img {
-    float: right;
-    width: 20%;
-    background: #5cb8ff;
-    border-radius: 30%;
-}
-
 .contenedor-ubicacion {
     display: flex;
     justify-content: space-around;
 }
 
-.carrito img {
-    margin: 5px;
-}
-
-.carrito img:hover,
-.producto img:hover,
-.owl-carousel img:hover {
+.producto img:hover {
     filter: brightness(0.7);
     border-radius: 10px;
 }

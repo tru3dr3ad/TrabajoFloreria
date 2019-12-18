@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-{% load static %}
+{% load pwa %} {% progressive_web_app_meta %} {% load static %}
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,66 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
     <title>Floreria</title>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase-messaging.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyA57Ps0lyaVXkQack1jd3E6kSrVZx7fHg8",
+            authDomain: "floreria-e7984.firebaseapp.com",
+            databaseURL: "https://floreria-e7984.firebaseio.com",
+            projectId: "floreria-e7984",
+            storageBucket: "floreria-e7984.appspot.com",
+            messagingSenderId: "52219613875",
+            appId: "1:52219613875:web:e39023e9a6eee3650416c6"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        let messaging = firebase.messaging();
+        navigator.serviceWorker
+        .register('./serviceworker.js')
+        .then(function(register) {
+            messaging.useServiceWorker(register);
+
+            messaging.requestPermission()
+            .then(function() {
+                console.log("El usuario ha aceptado recibir notificaciones")
+                return messaging.getToken();
+            })
+            .then(function(token) {
+                console.log(token);
+                //enviar el token hacia django para guardarlo en la base de datos
+                fetch('guardar-token/',{
+                    method:'post',
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Accept':'application/json'
+                    },
+                    body:JSON.stringify({
+                        'token':token
+                    })
+                })
+                .then(function(resultado){
+                    console.log("Se ha guardado el token")
+                })
+                .catch(function(e){
+                    console.log("No se ha podido guardar el token")
+                })
+            })
+            .catch(function(e) {
+                console.log("El usuario no ha aceptado: " + e)
+            })
+        }) 
+
+    </script>
 </head>
 
 <body>
@@ -21,16 +81,16 @@
                 <nav>
                     <ul>
                         <li>
-                            <a href="{% url 'home' %}"><img id="logo" src="{% static 'core/img/FlorLoto.png' %}"></a>
+                            <a href="{% url 'core:home' %}"><img id="logo" src="{% static 'core/img/FlorLoto.png' %}"></a>
                         </li>
                         <li>
-                            <a href="{% url 'galeria' %}">Flores</a>
+                            <a href="{% url 'core:galeria' %}">Flores</a>
                         </li>
                         <li>
-                            <a href="{% url 'nueva_flor' %}">Nuevo Producto</a>
+                            <a href="{% url 'core:nueva_flor' %}">Nuevo Producto</a>
                         </li>
                         <li>
-                            <a href="{% url 'listado_flores' %}">Listado de Flores</a>
+                            <a href="{% url 'core:listado_flores' %}">Listado de Flores</a>
                         </li>
                         {% if user.is_authenticated %}
                         <li>
@@ -44,7 +104,7 @@
                             <a href="{% url 'login' %}">Iniciar Sesion</a>
                         </li>
                         <li>
-                            <a href="{% url 'registro_usuario' %}">Registrar</a>
+                            <a href="{% url 'core:registro_usuario' %}">Registrar</a>
                         </li>
                         {% endif %}
                     </ul>
@@ -53,8 +113,6 @@
         </div>
         <div class="contenedor-titulo">
             <h1>Los Petalos</h1>
-        </div>
-        </div>
         </div>
     </header>
     <main>
@@ -70,6 +128,8 @@
                             <li>{{ f.descripcion }}</li>
                             <li>{{ f.valor }}</li>
                         </ul>
+                        <a href="carrito/{{ f.id }}" class="btn btn-success">Agregar</a>
+                        <a href="remover/{{ f.id }}" class="btn btn-danger">Quitar</a>
                     </div>
                     {% endfor %}
                 </div>
@@ -95,7 +155,6 @@
             </div>
         </section>
     </main>
-
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>

@@ -11,8 +11,9 @@
                     <li>{{ f.nombre }}</li>
                     <li>{{ f.descripcion }}</li>
                     <li>{{ f.valor }}</li>
-                    <li><a class="badge badge-primary" href="#">Agregar</a></li>
                 </ul>
+                <a href="carrito/{{ f.id }}" class="btn btn-success">Agregar</a>
+                <a href="remover/{{ f.id }}" class="btn btn-danger">Quitar</a>
             </div>
             {% endfor %}
         </div>

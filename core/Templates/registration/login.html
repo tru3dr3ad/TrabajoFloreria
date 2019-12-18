@@ -9,6 +9,7 @@
                 {% csrf_token %}
                 {{ form|crispy }}
                 <input class="btn btn-primary" type="submit" value="Entrar">
+                <a href="{% url 'social:begin' 'facebook' %}" type="button" class="btn btn-outline-primary"><img src="{% static 'core/img/face-icon.png' %}" style="width: 4vh;" >Login con facebook</a>
             </form>
         </div>
     </section>

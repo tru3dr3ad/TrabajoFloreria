@@ -22,7 +22,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('oauth/', include('social_django.urls', namespace='social')),
+    path('', include('pwa.urls')),
 ]
+
 
 admin.site.site_header = "Administracion de Los Petalos"
 admin.site.index_title = "Modulos de administracion"

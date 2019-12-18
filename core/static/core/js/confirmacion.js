@@ -1,4 +1,4 @@
-function confirmarEliminacion(id){
+function confirmarEliminacion(id) {
     Swal.fire({
         title: '¿Estas Seguro?',
         text: "No podrás revertir esto!",
@@ -8,9 +8,9 @@ function confirmarEliminacion(id){
         cancelButtonColor: '#d33',
         confirmButtonText: 'Si, Borralo!',
         cancelButtonText: 'Cancelar'
-      }).then((result) => {
+    }).then((result) => {
         if (result.value) {
-          window.location.href= "/eliminar-flores/"+id;
+            window.location.href = "/eliminar-flores/" + id;
         }
-      })
+    })
 }
