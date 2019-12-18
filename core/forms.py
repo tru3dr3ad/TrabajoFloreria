@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class FlorForm(ModelForm):
     nombre = forms.CharField(min_length=3, max_length=150)
     valor = forms.IntegerField(min_value=890, max_value=250000)
-    stock = forms.IntegerField(max_value=10000)
+    stock = forms.IntegerField(min_value=0, max_value=1000)
 
     class Meta:
         model = Flor

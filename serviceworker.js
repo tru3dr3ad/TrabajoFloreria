@@ -4,6 +4,7 @@ var urlsToCache = [
     '/static/core/css/estilos.css',
     '/static/core/img/FlorLoto.png',
     '/galeria',
+    '/nueva-flores',
 ];
 
 self.addEventListener('install', function(event) {

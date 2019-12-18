@@ -61,6 +61,9 @@ nav ul li a:hover,
 .logo:hover {
     color: black;
     list-style: none;
+    text-decoration: none;
+    zoom: 1.10;
+    border-color: white;
 }
 
 header ul li {
@@ -111,6 +114,10 @@ textarea {
 #registro,
 #login {
     padding: 70px;
+}
+
+.botones-compra {
+    float: inline-end;
 }
 
 

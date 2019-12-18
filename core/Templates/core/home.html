@@ -36,40 +36,39 @@
 
         let messaging = firebase.messaging();
         navigator.serviceWorker
-        .register('./serviceworker.js')
-        .then(function(register) {
-            messaging.useServiceWorker(register);
+            .register('./serviceworker.js')
+            .then(function(register) {
+                messaging.useServiceWorker(register);
 
-            messaging.requestPermission()
-            .then(function() {
-                console.log("El usuario ha aceptado recibir notificaciones")
-                return messaging.getToken();
-            })
-            .then(function(token) {
-                console.log(token);
-                //enviar el token hacia django para guardarlo en la base de datos
-                fetch('guardar-token/',{
-                    method:'post',
-                    headers:{
-                        'Content-Type':'application/json',
-                        'Accept':'application/json'
-                    },
-                    body:JSON.stringify({
-                        'token':token
+                messaging.requestPermission()
+                    .then(function() {
+                        console.log("El usuario ha aceptado recibir notificaciones")
+                        return messaging.getToken();
                     })
-                })
-                .then(function(resultado){
-                    console.log("Se ha guardado el token")
-                })
-                .catch(function(e){
-                    console.log("No se ha podido guardar el token")
-                })
+                    .then(function(token) {
+                        console.log(token);
+                        //enviar el token hacia django para guardarlo en la base de datos
+                        fetch('guardar-token/', {
+                                method: 'post',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    'token': token
+                                })
+                            })
+                            .then(function(resultado) {
+                                console.log("Se ha guardado el token")
+                            })
+                            .catch(function(e) {
+                                console.log("No se ha podido guardar el token")
+                            })
+                    })
+                    .catch(function(e) {
+                        console.log("El usuario no ha aceptado: " + e)
+                    })
             })
-            .catch(function(e) {
-                console.log("El usuario no ha aceptado: " + e)
-            })
-        }) 
-
     </script>
 </head>
 
@@ -128,8 +127,10 @@
                             <li>{{ f.descripcion }}</li>
                             <li>{{ f.valor }}</li>
                         </ul>
-                        <a href="carrito/{{ f.id }}" class="btn btn-success">Agregar</a>
-                        <a href="remover/{{ f.id }}" class="btn btn-danger">Quitar</a>
+                        <div class="botones-compra">
+                            <a href="carrito/{{ f.id }}" class="btn btn-success">Agregar</a>
+                            <a href="remover/{{ f.id }}" class="btn btn-danger">Quitar</a>
+                        </div>
                     </div>
                     {% endfor %}
                 </div>
